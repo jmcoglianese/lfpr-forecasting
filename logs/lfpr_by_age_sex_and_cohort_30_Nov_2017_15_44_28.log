@@ -1,0 +1,342 @@
+-----------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  /Users/johncoglianese/Documents/Research/LFPR/Forecasting/logs/lfpr_by_age_s
+> ex_and_cohort_30_Nov_2017_15_44_28.log
+  log type:  text
+ opened on:   3 Dec 2017, 20:49:29
+
+. 
+. *-------------------------------------------------------------------------------
+. * Load the data
+. *-------------------------------------------------------------------------------
+. 
+. !7za e "data/totpop_lfpr_panel_5.dta.gz" -o"data/"
+
+/bin/bash: 7za: command not found
+
+. use year age sex empstat wtfinl using "data/cps_00030.dta", clear
+
+. !rm "data/cps_00030.dta"
+
+
+. 
+. gen lfp = (inlist(empstat,10,12,20,21,22)) if !inlist(empstat,0,1)
+(12,622,222 missing values generated)
+
+. gen n = 1
+
+. 
+. *-------------------------------------------------------------------------------
+. * Collapse and plot
+. *-------------------------------------------------------------------------------
+. 
+. collapse (mean) lfp (rawsum) n [iw = wtfinl], by(age sex year)
+
+. 
+. replace lfp = lfp * 100
+(6,082 real changes made)
+
+. gen cohort = year - age
+
+. 
+. save "data/lfpr_age_sex_cohort.dta", replace
+(note: file data/lfpr_age_sex_cohort.dta not found)
+file data/lfpr_age_sex_cohort.dta saved
+
+. export delimited "data/lfpr_age_sex_cohort.csv", delim(",") replace
+(note: file data/lfpr_age_sex_cohort.csv not found)
+file data/lfpr_age_sex_cohort.csv saved
+
+.         
+. 
+end of do-file
+
+. clear
+
+. help export delimited
+
+. use "data/lfpr_age_sex_cohort.dta", clear
+
+. do "/var/folders/0b/rk0m4vps1wdcl9c2sqsp12480000gn/T//SD14191.000000"
+
+. drop if lfp == .
+(1,077 observations deleted)
+
+. 
+end of do-file
+
+. do "/var/folders/0b/rk0m4vps1wdcl9c2sqsp12480000gn/T//SD14191.000000"
+
+. export delimited "data/lfpr_age_sex_cohort.csv", delim(",") replace nolabel
+file data/lfpr_age_sex_cohort.csv saved
+
+. 
+end of do-file
+
+. do "/var/folders/0b/rk0m4vps1wdcl9c2sqsp12480000gn/T//SD14191.000000"
+
+. keep if inrange(age, 16, 90)
+(296 observations deleted)
+
+. export delimited "data/lfpr_age_sex_cohort.csv", delim(",") replace nolabel
+file data/lfpr_age_sex_cohort.csv saved
+
+. 
+end of do-file
+
+. egen lfp_tot = total(lfp * (year < 2000)), by(age sex)
+
+. egen lfp_count = total((year < 2000)), by(age sex)
+
+. gen lfp_age_avg = lfp_tot / lfp_count
+
+. do "/var/folders/0b/rk0m4vps1wdcl9c2sqsp12480000gn/T//SD14191.000000
+> "
+
+. drop lfp_tot lfp_count
+
+. 
+end of do-file
+
+. do "/var/folders/0b/rk0m4vps1wdcl9c2sqsp12480000gn/T//SD14191.000000"
+
+. export delimited "data/lfpr_age_sex_cohort.csv", delim(",") replace nolabel
+file data/lfpr_age_sex_cohort.csv saved
+
+. 
+end of do-file
+
+. import delimited using "data/lfpr_gp_pred3.csv", delim(",") clear
+(9 vars, 5,896 obs)
+
+. collapse (mean) lfp lfp_pred [fw = n], by(year)
+
+. tsline lfp lfp_pred
+time variable not set, use tsset varname ...
+r(111);
+
+. tsset year
+        time variable:  year, 1976 to 2016
+                delta:  1 unit
+
+. tsline lfp lfp_pred
+
+. import delimited using "data/lfpr_gp_pred.csv", delim(",") clear
+(8 vars, 5,896 obs)
+
+. collapse (mean) lfp lfp_pred [fw = n], by(year)
+
+. tsset year
+        time variable:  year, 1976 to 2016
+                delta:  1 unit
+
+. tsline lfp lfp_pred
+
+. import delimited using "data/lfpr_gp_pred2.csv", delim(",") clear
+(9 vars, 5,896 obs)
+
+. collapse (mean) lfp lfp_pred [fw = n], by(year)
+
+. tsset year
+        time variable:  year, 1976 to 2016
+                delta:  1 unit
+
+. tsline lfp lfp_pred
+
+. import delimited using "data/lfpr_gp_pred2.csv", delim(",") clear
+(9 vars, 5,896 obs)
+
+. recode age (16/24 = 1) (25/54 = 2) (55/90 = 3), gen(agegrp)
+(5896 differences between age and agegrp)
+
+. collapse (mean) lfp lfp_pred [fw = n], by(year agegrp sex)
+
+. import delimited using "data/lfpr_gp_pred2.csv", delim(",") clear
+(9 vars, 5,896 obs)
+
+. recode age (16/24 = 1) (25/54 = 2) (55/90 = 3), gen(agegrp)
+(5896 differences between age and agegrp)
+
+. collapse (mean) lfp lfp_pred (rawsum) n [fw = n], by(year agegrp sex)
+
+. binscatter lfp lfp_pred year [aw = n], discrete linetype(connect) by(sex)
+
+. binscatter lfp lfp_pred year [aw = n], discrete linetype(connect) by(sex agegrp) 
+by():  too many variables specified
+r(103);
+
+. binscatter lfp lfp_pred year [aw = n], discrete linetype(connect) by(agegrp) 
+
+. binscatter lfp lfp_pred year [aw = n], discrete linetype(connect) 
+
+. binscatter lfp lfp_pred year [aw = n] if agegrp == 3 & sex == 2, discrete linetype(conn
+> ect) 
+discrete specified, but number of unique values is > (sample size/2)
+r(134);
+
+. line lfp lfp_pred year [aw = n] if agegrp == 3 & sex == 2, 
+
+. binscatter lfp lfp_pred year [aw = n], discrete linetype(connect) 
+
+. line lfp lfp_pred year [aw = n] if agegrp == 2 & sex == 2 
+
+. pwd
+/Users/johncoglianese/Documents/Research/LFPR/Forecasting
+
+. use wtfinl total_lfp_collapsed cpsidp year_start age sex race using "data/ipums_panel_v
+> 2.dta", clear
+file data/ipums_panel_v2.dta not found
+r(601);
+
+. do "/var/folders/0b/rk0m4vps1wdcl9c2sqsp12480000gn/T//SD14191.000000"
+
+. 
+. cd "~/Documents/Research/LFPR/Prime-Age Male Participation"
+/Users/johncoglianese/Documents/Research/LFPR/Prime-Age Male Participation
+
+. 
+end of do-file
+
+. use wtfinl total_lfp_collapsed cpsidp year_start age sex race using "data/ipums_panel_v
+> 2.dta", clear
+
+. egen min_age = min(age), by(cpsidp year_start)
+
+. egen max_age = max(age), by(cpsidp year_start)
+
+. egen min_race = min(race), by(cpsidp year_start)
+
+. egen max_race = max(race), by(cpsidp year_start)
+
+. gen age_diff = abs(min_age - max_age)
+
+. gen race_diff = abs(min_race - max_race)
+
+. bys total_lfp_collapsed: summ age_diff [iw = wtfinl], d
+
+-----------------------------------------------------------------------------------------
+-> total_lfp_collapsed = 0
+iweights not allowed
+r(101);
+
+. bys total_lfp_collapsed: summ age_diff [pw = wtfinl], d
+
+-----------------------------------------------------------------------------------------
+-> total_lfp_collapsed = 0
+pweights not allowed
+r(101);
+
+. bys total_lfp_collapsed: summ age_diff [aw = wtfinl], d
+
+-----------------------------------------------------------------------------------------
+-> total_lfp_collapsed = 0
+
+                          age_diff
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%            1              0
+ 5%            1              0
+10%            1              0       Obs             272,080
+25%            1              0       Sum of Wgt.   583409780
+
+50%            1                      Mean           1.391322
+                        Largest       Std. Dev.      1.369627
+75%            2             28
+90%            2             28       Variance       1.875879
+95%            2             28       Skewness        9.71861
+99%            7             28       Kurtosis       127.3291
+
+-----------------------------------------------------------------------------------------
+-> total_lfp_collapsed = 1
+
+                          age_diff
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%            1              0
+ 5%            1              0
+10%            1              0       Obs             526,624
+25%            1              0       Sum of Wgt.  1.1253e+09
+
+50%            1                      Mean            1.47582
+                        Largest       Std. Dev.      1.618009
+75%            2             29
+90%            2             29       Variance       2.617953
+95%            2             29       Skewness       8.055895
+99%           10             29       Kurtosis        85.5206
+
+-----------------------------------------------------------------------------------------
+-> total_lfp_collapsed = 2
+
+                          age_diff
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%            1              0
+ 5%            1              0
+10%            1              0       Obs           5,735,112
+25%            1              0       Sum of Wgt.  1.1348e+10
+
+50%            1                      Mean           1.378609
+                        Largest       Std. Dev.      1.248618
+75%            2             29
+90%            2             29       Variance       1.559048
+95%            2             29       Skewness       9.544534
+99%            6             29       Kurtosis       125.8471
+
+
+. bys total_lfp_collapsed: summ race_diff [aw = wtfinl], d
+
+-----------------------------------------------------------------------------------------
+-> total_lfp_collapsed = 0
+
+                          race_diff
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%            0              0
+ 5%            0              0
+10%            0              0       Obs             272,080
+25%            0              0       Sum of Wgt.   583409780
+
+50%            0                      Mean           2.390223
+                        Largest       Std. Dev.      34.32423
+75%            0            709
+90%            0            709       Variance       1178.153
+95%            0            709       Skewness       17.16877
+99%            1            709       Kurtosis       311.0304
+
+-----------------------------------------------------------------------------------------
+-> total_lfp_collapsed = 1
+
+                          race_diff
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%            0              0
+ 5%            0              0
+10%            0              0       Obs             526,624
+25%            0              0       Sum of Wgt.  1.1253e+09
+
+50%            0                      Mean           3.606049
+                        Largest       Std. Dev.      42.26157
+75%            0            720
+90%            0            720       Variance        1786.04
+95%            0            720       Skewness        13.6124
+99%          100            720       Kurtosis       196.0615
+
+-----------------------------------------------------------------------------------------
+-> total_lfp_collapsed = 2
+
+                          race_diff
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%            0              0
+ 5%            0              0
+10%            0              0       Obs           5,735,112
+25%            0              0       Sum of Wgt.  1.1348e+10
+
+50%            0                      Mean           2.172541
+                        Largest       Std. Dev.      32.85691
+75%            0            720
+90%            0            720       Variance       1079.577
+95%            0            720       Skewness       17.35487
+99%            1            720       Kurtosis       315.4642
+
+
