@@ -1,1 +1,6 @@
+jupyter contrib nbextension install --user
 jupyter nbextension enable --py widgetsnbextension
+jupyter nbextension enable init_cells/main
+
+jupyter trust "../Initial Results.ipynb"
+jupyter trust "../Testing Kernels.ipynb"

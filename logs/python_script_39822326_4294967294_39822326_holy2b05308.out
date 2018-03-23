@@ -1,0 +1,255 @@
+Wed Mar 21 19:41:35 EDT 2018
+
+Name : GP regression
+Objective : -3429.85195509
+Number of Parameters : 8
+Number of Optimization Parameters : 8
+Updates : True
+Parameters:
+  [1mGP_regression.          [0;0m  |             value  |  constraints  |  priors
+  [1msum.rbf.variance        [0;0m  |    0.951020216559  |      +ve      |        
+  [1msum.rbf.lengthscale     [0;0m  |              (2,)  |      +ve      |        
+  [1msum.mul.linear.variances[0;0m  |    0.169504193007  |      +ve      |        
+  [1msum.mul.rbf.variance    [0;0m  |    0.169504193007  |      +ve      |        
+  [1msum.mul.rbf.lengthscale [0;0m  |              (2,)  |      +ve      |        
+  [1mGaussian_noise.variance [0;0m  |  0.00784888465643  |      +ve      |        
+  [1mindex[0;0m  |          GP_regression.sum.rbf.variance  |  constraints  |  priors
+  [1m[0]  [0;0m  |                              0.95102022  |      +ve      |        
+  [1m-----[0;0m  |       GP_regression.sum.rbf.lengthscale  |  -----------  |  ------
+  [1m[0]  [0;0m  |                              0.10000000  |      +ve      |        
+  [1m[1]  [0;0m  |                              0.35114538  |      +ve      |        
+  [1m-----[0;0m  |  GP_regression.sum.mul.linear.variances  |  -----------  |  ------
+  [1m[0]  [0;0m  |                              0.16950419  |      +ve      |        
+  [1m-----[0;0m  |      GP_regression.sum.mul.rbf.variance  |  -----------  |  ------
+  [1m[0]  [0;0m  |                              0.16950419  |      +ve      |        
+  [1m-----[0;0m  |   GP_regression.sum.mul.rbf.lengthscale  |  -----------  |  ------
+  [1m[0]  [0;0m  |                              0.10000000  |      +ve      |        
+  [1m[1]  [0;0m  |                              0.34292195  |      +ve      |        
+  [1m-----[0;0m  |   GP_regression.Gaussian_noise.variance  |  -----------  |  ------
+  [1m[0]  [0;0m  |                              0.00784888  |      +ve      |        
+
+Name : GP regression
+Objective : -3583.76307694
+Number of Parameters : 9
+Number of Optimization Parameters : 9
+Updates : True
+Parameters:
+  [1mGP_regression.          [0;0m  |             value  |  constraints  |  priors
+  [1msum.rbf.variance        [0;0m  |    0.829362827322  |      +ve      |        
+  [1msum.rbf.lengthscale     [0;0m  |              (2,)  |      +ve      |        
+  [1msum.mul.linear.variances[0;0m  |    0.124937265945  |      +ve      |        
+  [1msum.mul.rbf.variance    [0;0m  |    0.124937265945  |      +ve      |        
+  [1msum.mul.rbf.lengthscale [0;0m  |              (3,)  |      +ve      |        
+  [1mGaussian_noise.variance [0;0m  |  0.00662022890952  |      +ve      |        
+  [1mindex[0;0m  |          GP_regression.sum.rbf.variance  |  constraints  |  priors
+  [1m[0]  [0;0m  |                              0.82936283  |      +ve      |        
+  [1m-----[0;0m  |       GP_regression.sum.rbf.lengthscale  |  -----------  |  ------
+  [1m[0]  [0;0m  |                              0.10000000  |      +ve      |        
+  [1m[1]  [0;0m  |                              0.28988476  |      +ve      |        
+  [1m-----[0;0m  |  GP_regression.sum.mul.linear.variances  |  -----------  |  ------
+  [1m[0]  [0;0m  |                              0.12493727  |      +ve      |        
+  [1m-----[0;0m  |      GP_regression.sum.mul.rbf.variance  |  -----------  |  ------
+  [1m[0]  [0;0m  |                              0.12493727  |      +ve      |        
+  [1m-----[0;0m  |   GP_regression.sum.mul.rbf.lengthscale  |  -----------  |  ------
+  [1m[0]  [0;0m  |                              0.10000000  |      +ve      |        
+  [1m[1]  [0;0m  |                              0.39907135  |      +ve      |        
+  [1m[2]  [0;0m  |                              0.44971596  |      +ve      |        
+  [1m-----[0;0m  |   GP_regression.Gaussian_noise.variance  |  -----------  |  ------
+  [1m[0]  [0;0m  |                              0.00662023  |      +ve      |        
+
+Name : GP regression
+Objective : -3574.34345655
+Number of Parameters : 10
+Number of Optimization Parameters : 10
+Updates : True
+Parameters:
+  [1mGP_regression.           [0;0m  |             value  |  constraints  |  priors
+  [1msum.rbf.variance         [0;0m  |    0.559796165416  |      +ve      |        
+  [1msum.rbf.lengthscale      [0;0m  |              (2,)  |      +ve      |        
+  [1msum.mul.linear.variances [0;0m  |    0.463735894394  |      +ve      |        
+  [1msum.mul.rbf.variance     [0;0m  |    0.463735894394  |      +ve      |        
+  [1msum.mul.rbf.lengthscale  [0;0m  |    0.817491878648  |      +ve      |        
+  [1msum.mul.rbf_1.variance   [0;0m  |    0.463735894394  |      +ve      |        
+  [1msum.mul.rbf_1.lengthscale[0;0m  |              (2,)  |      +ve      |        
+  [1mGaussian_noise.variance  [0;0m  |  0.00707797669427  |      +ve      |        
+  [1mindex[0;0m  |           GP_regression.sum.rbf.variance  |  constraints  |  priors
+  [1m[0]  [0;0m  |                               0.55979617  |      +ve      |        
+  [1m-----[0;0m  |        GP_regression.sum.rbf.lengthscale  |  -----------  |  ------
+  [1m[0]  [0;0m  |                               0.10000000  |      +ve      |        
+  [1m[1]  [0;0m  |                               0.28784177  |      +ve      |        
+  [1m-----[0;0m  |   GP_regression.sum.mul.linear.variances  |  -----------  |  ------
+  [1m[0]  [0;0m  |                               0.46373589  |      +ve      |        
+  [1m-----[0;0m  |       GP_regression.sum.mul.rbf.variance  |  -----------  |  ------
+  [1m[0]  [0;0m  |                               0.46373589  |      +ve      |        
+  [1m-----[0;0m  |    GP_regression.sum.mul.rbf.lengthscale  |  -----------  |  ------
+  [1m[0]  [0;0m  |                               0.81749188  |      +ve      |        
+  [1m-----[0;0m  |     GP_regression.sum.mul.rbf_1.variance  |  -----------  |  ------
+  [1m[0]  [0;0m  |                               0.46373589  |      +ve      |        
+  [1m-----[0;0m  |  GP_regression.sum.mul.rbf_1.lengthscale  |  -----------  |  ------
+  [1m[0]  [0;0m  |                               0.10000000  |      +ve      |        
+  [1m[1]  [0;0m  |                               0.40583005  |      +ve      |        
+  [1m-----[0;0m  |    GP_regression.Gaussian_noise.variance  |  -----------  |  ------
+  [1m[0]  [0;0m  |                               0.00707798  |      +ve      |        
+
+Name : GP regression
+Objective : -3610.89258916
+Number of Parameters : 11
+Number of Optimization Parameters : 11
+Updates : True
+Parameters:
+  [1mGP_regression.          [0;0m  |            value  |  constraints  |  priors
+  [1msum.rbf.variance        [0;0m  |   0.703777607117  |      +ve      |        
+  [1msum.rbf.lengthscale     [0;0m  |             (2,)  |      +ve      |        
+  [1msum.mul.linear.variances[0;0m  |   0.112609813332  |      +ve      |        
+  [1msum.mul.rbf.variance    [0;0m  |   0.112609813332  |      +ve      |        
+  [1msum.mul.rbf.lengthscale [0;0m  |             (3,)  |      +ve      |        
+  [1msum.rbf_1.variance      [0;0m  |   0.484254288396  |      +ve      |        
+  [1msum.rbf_1.lengthscale   [0;0m  |   0.715784821872  |      +ve      |        
+  [1mGaussian_noise.variance [0;0m  |  0.0060917520984  |      +ve      |        
+  [1mindex[0;0m  |          GP_regression.sum.rbf.variance  |  constraints  |  priors
+  [1m[0]  [0;0m  |                              0.70377761  |      +ve      |        
+  [1m-----[0;0m  |       GP_regression.sum.rbf.lengthscale  |  -----------  |  ------
+  [1m[0]  [0;0m  |                              0.10000000  |      +ve      |        
+  [1m[1]  [0;0m  |                              0.28216482  |      +ve      |        
+  [1m-----[0;0m  |  GP_regression.sum.mul.linear.variances  |  -----------  |  ------
+  [1m[0]  [0;0m  |                              0.11260981  |      +ve      |        
+  [1m-----[0;0m  |      GP_regression.sum.mul.rbf.variance  |  -----------  |  ------
+  [1m[0]  [0;0m  |                              0.11260981  |      +ve      |        
+  [1m-----[0;0m  |   GP_regression.sum.mul.rbf.lengthscale  |  -----------  |  ------
+  [1m[0]  [0;0m  |                              0.10000000  |      +ve      |        
+  [1m[1]  [0;0m  |                              0.43358068  |      +ve      |        
+  [1m[2]  [0;0m  |                              0.18479238  |      +ve      |        
+  [1m-----[0;0m  |        GP_regression.sum.rbf_1.variance  |  -----------  |  ------
+  [1m[0]  [0;0m  |                              0.48425429  |      +ve      |        
+  [1m-----[0;0m  |     GP_regression.sum.rbf_1.lengthscale  |  -----------  |  ------
+  [1m[0]  [0;0m  |                              0.71578482  |      +ve      |        
+  [1m-----[0;0m  |   GP_regression.Gaussian_noise.variance  |  -----------  |  ------
+  [1m[0]  [0;0m  |                              0.00609175  |      +ve      |        
+
+Name : GP regression
+Objective : -2547.44932758
+Number of Parameters : 7
+Number of Optimization Parameters : 7
+Updates : True
+Parameters:
+  [1mGP_regression.          [0;0m  |            value  |  constraints  |  priors
+  [1msum.rbf.variance        [0;0m  |   0.907721063928  |      +ve      |        
+  [1msum.rbf.lengthscale     [0;0m  |             (2,)  |      +ve      |        
+  [1msum.mul.linear.variances[0;0m  |  0.0966570809636  |      +ve      |        
+  [1msum.mul.rbf.variance    [0;0m  |  0.0966570809636  |      +ve      |        
+  [1msum.mul.rbf.lengthscale [0;0m  |   0.585619872926  |      +ve      |        
+  [1mGaussian_noise.variance [0;0m  |  0.0133478569067  |      +ve      |        
+  [1mindex[0;0m  |          GP_regression.sum.rbf.variance  |  constraints  |  priors
+  [1m[0]  [0;0m  |                              0.90772106  |      +ve      |        
+  [1m-----[0;0m  |       GP_regression.sum.rbf.lengthscale  |  -----------  |  ------
+  [1m[0]  [0;0m  |                              0.10000000  |      +ve      |        
+  [1m[1]  [0;0m  |                              0.41591579  |      +ve      |        
+  [1m-----[0;0m  |  GP_regression.sum.mul.linear.variances  |  -----------  |  ------
+  [1m[0]  [0;0m  |                              0.09665708  |      +ve      |        
+  [1m-----[0;0m  |      GP_regression.sum.mul.rbf.variance  |  -----------  |  ------
+  [1m[0]  [0;0m  |                              0.09665708  |      +ve      |        
+  [1m-----[0;0m  |   GP_regression.sum.mul.rbf.lengthscale  |  -----------  |  ------
+  [1m[0]  [0;0m  |                              0.58561987  |      +ve      |        
+  [1m-----[0;0m  |   GP_regression.Gaussian_noise.variance  |  -----------  |  ------
+  [1m[0]  [0;0m  |                              0.01334786  |      +ve      |        
+
+Name : GP regression
+Objective : -3589.08650664
+Number of Parameters : 13
+Number of Optimization Parameters : 13
+Updates : True
+Parameters:
+  [1mGP_regression.            [0;0m  |             value  |  constraints  |  priors
+  [1msum.rbf.variance          [0;0m  |    0.833834237388  |      +ve      |        
+  [1msum.rbf.lengthscale       [0;0m  |              (2,)  |      +ve      |        
+  [1msum.mul.linear.variances  [0;0m  |    0.121363648809  |      +ve      |        
+  [1msum.mul.rbf.variance      [0;0m  |    0.121363648805  |      +ve      |        
+  [1msum.mul.rbf.lengthscale   [0;0m  |              (3,)  |      +ve      |        
+  [1msum.mul_1.linear.variances[0;0m  |  0.00857336976662  |      +ve      |        
+  [1msum.mul_1.rbf.variance    [0;0m  |  0.00857336976735  |      +ve      |        
+  [1msum.mul_1.rbf.lengthscale [0;0m  |              (2,)  |      +ve      |        
+  [1mGaussian_noise.variance   [0;0m  |  0.00615740482877  |      +ve      |        
+  [1mindex[0;0m  |            GP_regression.sum.rbf.variance  |  constraints  |  priors
+  [1m[0]  [0;0m  |                                0.83383424  |      +ve      |        
+  [1m-----[0;0m  |         GP_regression.sum.rbf.lengthscale  |  -----------  |  ------
+  [1m[0]  [0;0m  |                                0.10000000  |      +ve      |        
+  [1m[1]  [0;0m  |                                0.28676171  |      +ve      |        
+  [1m-----[0;0m  |    GP_regression.sum.mul.linear.variances  |  -----------  |  ------
+  [1m[0]  [0;0m  |                                0.12136365  |      +ve      |        
+  [1m-----[0;0m  |        GP_regression.sum.mul.rbf.variance  |  -----------  |  ------
+  [1m[0]  [0;0m  |                                0.12136365  |      +ve      |        
+  [1m-----[0;0m  |     GP_regression.sum.mul.rbf.lengthscale  |  -----------  |  ------
+  [1m[0]  [0;0m  |                                0.10000000  |      +ve      |        
+  [1m[1]  [0;0m  |                                0.37540253  |      +ve      |        
+  [1m[2]  [0;0m  |                                0.21047281  |      +ve      |        
+  [1m-----[0;0m  |  GP_regression.sum.mul_1.linear.variances  |  -----------  |  ------
+  [1m[0]  [0;0m  |                                0.00857337  |      +ve      |        
+  [1m-----[0;0m  |      GP_regression.sum.mul_1.rbf.variance  |  -----------  |  ------
+  [1m[0]  [0;0m  |                                0.00857337  |      +ve      |        
+  [1m-----[0;0m  |   GP_regression.sum.mul_1.rbf.lengthscale  |  -----------  |  ------
+  [1m[0]  [0;0m  |                                0.10000000  |      +ve      |        
+  [1m[1]  [0;0m  |                              115.28956495  |      +ve      |        
+  [1m-----[0;0m  |     GP_regression.Gaussian_noise.variance  |  -----------  |  ------
+  [1m[0]  [0;0m  |                                0.00615740  |      +ve      |        
+
+Name : GP regression
+Objective : -3597.49065497
+Number of Parameters : 21
+Number of Optimization Parameters : 21
+Updates : True
+Parameters:
+  [1mGP_regression.            [0;0m  |             value  |  constraints  |  priors
+  [1msum.rbf.variance          [0;0m  |    0.991671531382  |      +ve      |        
+  [1msum.rbf.lengthscale       [0;0m  |              (2,)  |      +ve      |        
+  [1msum.mul.linear.variances  [0;0m  |    0.176210722713  |      +ve      |        
+  [1msum.mul.rbf.variance      [0;0m  |    0.176210722713  |      +ve      |        
+  [1msum.mul.rbf.lengthscale   [0;0m  |              (3,)  |      +ve      |        
+  [1msum.mul_1.linear.variances[0;0m  |  0.00644307413558  |      +ve      |        
+  [1msum.mul_1.rbf.variance    [0;0m  |  0.00644307413558  |      +ve      |        
+  [1msum.mul_1.rbf.lengthscale [0;0m  |              (2,)  |      +ve      |        
+  [1msum.mul_2.linear.variances[0;0m  |   0.0430451821733  |      +ve      |        
+  [1msum.mul_2.rbf.variance    [0;0m  |   0.0430451821733  |      +ve      |        
+  [1msum.mul_2.rbf.lengthscale [0;0m  |              (2,)  |      +ve      |        
+  [1msum.mul_3.linear.variances[0;0m  |  0.00523559165418  |      +ve      |        
+  [1msum.mul_3.rbf.variance    [0;0m  |  0.00523559165418  |      +ve      |        
+  [1msum.mul_3.rbf.lengthscale [0;0m  |              (2,)  |      +ve      |        
+  [1mGaussian_noise.variance   [0;0m  |  0.00692094237707  |      +ve      |        
+  [1mindex[0;0m  |            GP_regression.sum.rbf.variance  |  constraints  |  priors
+  [1m[0]  [0;0m  |                                0.99167153  |      +ve      |        
+  [1m-----[0;0m  |         GP_regression.sum.rbf.lengthscale  |  -----------  |  ------
+  [1m[0]  [0;0m  |                                0.10000000  |      +ve      |        
+  [1m[1]  [0;0m  |                                0.34684493  |      +ve      |        
+  [1m-----[0;0m  |    GP_regression.sum.mul.linear.variances  |  -----------  |  ------
+  [1m[0]  [0;0m  |                                0.17621072  |      +ve      |        
+  [1m-----[0;0m  |        GP_regression.sum.mul.rbf.variance  |  -----------  |  ------
+  [1m[0]  [0;0m  |                                0.17621072  |      +ve      |        
+  [1m-----[0;0m  |     GP_regression.sum.mul.rbf.lengthscale  |  -----------  |  ------
+  [1m[0]  [0;0m  |                                0.10000000  |      +ve      |        
+  [1m[1]  [0;0m  |                                0.36252976  |      +ve      |        
+  [1m[2]  [0;0m  |                                5.58208411  |      +ve      |        
+  [1m-----[0;0m  |  GP_regression.sum.mul_1.linear.variances  |  -----------  |  ------
+  [1m[0]  [0;0m  |                                0.00644307  |      +ve      |        
+  [1m-----[0;0m  |      GP_regression.sum.mul_1.rbf.variance  |  -----------  |  ------
+  [1m[0]  [0;0m  |                                0.00644307  |      +ve      |        
+  [1m-----[0;0m  |   GP_regression.sum.mul_1.rbf.lengthscale  |  -----------  |  ------
+  [1m[0]  [0;0m  |                                0.10000000  |      +ve      |        
+  [1m[1]  [0;0m  |                                1.07357894  |      +ve      |        
+  [1m-----[0;0m  |  GP_regression.sum.mul_2.linear.variances  |  -----------  |  ------
+  [1m[0]  [0;0m  |                                0.04304518  |      +ve      |        
+  [1m-----[0;0m  |      GP_regression.sum.mul_2.rbf.variance  |  -----------  |  ------
+  [1m[0]  [0;0m  |                                0.04304518  |      +ve      |        
+  [1m-----[0;0m  |   GP_regression.sum.mul_2.rbf.lengthscale  |  -----------  |  ------
+  [1m[0]  [0;0m  |                                0.10000000  |      +ve      |        
+  [1m[1]  [0;0m  |                                0.71019244  |      +ve      |        
+  [1m-----[0;0m  |  GP_regression.sum.mul_3.linear.variances  |  -----------  |  ------
+  [1m[0]  [0;0m  |                                0.00523559  |      +ve      |        
+  [1m-----[0;0m  |      GP_regression.sum.mul_3.rbf.variance  |  -----------  |  ------
+  [1m[0]  [0;0m  |                                0.00523559  |      +ve      |        
+  [1m-----[0;0m  |   GP_regression.sum.mul_3.rbf.lengthscale  |  -----------  |  ------
+  [1m[0]  [0;0m  |                                0.10000000  |      +ve      |        
+  [1m[1]  [0;0m  |                                0.72610744  |      +ve      |        
+  [1m-----[0;0m  |     GP_regression.Gaussian_noise.variance  |  -----------  |  ------
+  [1m[0]  [0;0m  |                                0.00692094  |      +ve      |        
+Wed Mar 21 22:47:10 EDT 2018
+Total runtime: 0:03:05:35.2743
+Done

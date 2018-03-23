@@ -41,26 +41,22 @@ age_widget = widgets.IntRangeSlider(
 actual_data_widget = widgets.Checkbox(
     value=True,
     description='Actual LFPR',
-    disabled=False,
-    style={'description_width': 'initial'}
+    disabled=False
 )
 gp_data_widget = widgets.Checkbox(
     value=True,
-    description='Plain GP',
-    disabled=False,
-    style={'description_width': 'initial'}
+    description='GP without mean function',
+    disabled=False
 )
 gp2_data_widget = widgets.Checkbox(
     value=True,
-    description='GP w/ Age-Specific Mean',
-    disabled=False,
-    style={'description_width': 'initial'}
+    description='GP with age-specific mean',
+    disabled=False
 )
 gp3_data_widget = widgets.Checkbox(
     value=True,
-    description='GP w/ Mean & Logistic Transform',
-    disabled=False,
-    style={'description_width': 'initial'}
+    description='GP with age-specific mean and logistic transform',
+    disabled=False
 )
 data_widget_box = widgets.Box([actual_data_widget, gp_data_widget, gp2_data_widget, gp3_data_widget])
 year_widget = widgets.IntRangeSlider(
@@ -91,7 +87,7 @@ age_adjustment_widget = widgets.Checkbox(
 dataset_widget = widgets.Dropdown(
     options=['Matlab', 'Python'],
     value='Matlab',
-    description='GP Toolkit:',
+    description='GP Method:',
     disabled=False,
 )
 
@@ -207,7 +203,7 @@ def cohort_plots(change):
         
     fig.canvas.draw()
     
-for widget in [cohort_widget, age_widget, year_widget, age_adjustment_widget, dataset_widget]:
+for widget in [cohort_widget, age_widget, year_widget, age_adjustment_widget]:
     widget.observe(cohort_plots, names = 'value')
 for widget in data_widget_box.children:
     widget.observe(cohort_plots, names = 'value')
