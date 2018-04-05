@@ -1,4 +1,5 @@
 channels:
+- conda-forge
 - defaults
 dependencies:
 - python=2.7
@@ -6,6 +7,6 @@ dependencies:
 - matplotlib=2.1.2
 - numpy=1.14.0
 - pandas=0.22.0
+- jupyter_contrib_nbextensions
 - pip:
-  - jupyter_contrib_nbextensions
   - plotly
