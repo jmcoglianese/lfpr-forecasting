@@ -1,0 +1,5 @@
+discarding /n/sw/fasrcsw/apps/Core/Anaconda/1.9.2-fasrc01/x/bin from PATH
+prepending /n/home00/jcoglianese/.conda/envs/py27/bin to PATH
+ /n/home00/jcoglianese/.conda/envs/py27/lib/python2.7/site-packages/GPy/core/gp.py:87: UserWarning:Your kernel has a different input dimension 3 then the given X dimension 7. Be very sure this is what you want and you have not forgotten to set the right input dimenion in your kernel
+ /n/home00/jcoglianese/.conda/envs/py27/lib/python2.7/site-packages/GPy/core/gp.py:87: UserWarning:Your kernel has a different input dimension 4 then the given X dimension 7. Be very sure this is what you want and you have not forgotten to set the right input dimenion in your kernel
+ /n/home00/jcoglianese/.conda/envs/py27/lib/python2.7/site-packages/GPy/core/gp.py:87: UserWarning:Your kernel has a different input dimension 5 then the given X dimension 7. Be very sure this is what you want and you have not forgotten to set the right input dimenion in your kernel

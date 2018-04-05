@@ -4,6 +4,8 @@ import pandas as pd
 import numpy as np
 from scipy.special import logit, expit
 import GPy
+from copy import deepcopy
+import pickle
 
 try:
     os.chdir('/Users/johncoglianese/Dropbox/Documents/Research/LFPR/Forecasting')
@@ -41,8 +43,8 @@ data = pd.read_csv("data/lfpr_age_sex_cohort.csv")
 data[data[['lfp']] == 0] = 1
 
 
-k_se_tagesex = GPy.kern.RBF(input_dim = 3, variance = 0.2 ** 2, lengthscale = [0.1, 1.0, 1.0], ARD = True, active_dims = [0, 1, 2])
-k_se_agesex = GPy.kern.RBF(input_dim = 2, variance = 0.2 ** 2, lengthscale = [0.1, 1.0], ARD = True, active_dims = [0, 1])
+k_se_tagesex = GPy.kern.RBF(input_dim = 3, variance = 0.2 ** 2, lengthscale = [0.01, 1.0, 1.0], ARD = True, active_dims = [0, 1, 2])
+k_se_agesex = GPy.kern.RBF(input_dim = 2, variance = 0.2 ** 2, lengthscale = [0.01, 1.0], ARD = True, active_dims = [0, 1])
 k_se_cohort = GPy.kern.RBF(input_dim = 1, variance = 0.2 ** 2, lengthscale = [1.0], active_dims = [3])
 k_lin_t = GPy.kern.Linear(input_dim = 1, variances = [0.2 ** 2], active_dims = [2])
 k_lin_cohort = GPy.kern.Linear(input_dim = 1, variances = [0.2 ** 2], active_dims = [3])
@@ -59,6 +61,7 @@ k6 = k_se_agesex + k_lin_t * k_se_tagesex + k_lin_ugap * k_se_agesex
 k7 = k_se_agesex + k_lin_t * k_se_tagesex + k_lin_ugap * k_se_agesex + k_lin_ugapl1 * k_se_agesex + k_lin_ugapl2 * k_se_agesex
 
 kernels = [k1, k2, k3, k4, k5, k6, k7]
+ms = []
 
 for i, kern in enumerate(kernels):
     proc_data = data.copy()
@@ -79,6 +82,7 @@ for i, kern in enumerate(kernels):
     m.optimize()
     print m
     print m['']
+    ms.append(deepcopy(m))
     
     pred, var = m.predict(XN_all)
     y_pred = untransform_y(np.squeeze(pred) * y_std + y_mean, logit_link)
@@ -86,4 +90,11 @@ for i, kern in enumerate(kernels):
     data['lfp_pred{}'.format(i+1)] = y_pred
     data['lfp_se{}'.format(i+1)] = y_se
     
+    for j, subk in enumerate(m.kern.parameters):
+        subpred, subvar = m.predict(XN_all, kern = subk)
+        data['lfp_pred{}_{}'.format(i+1, j+1)] = untransform_y(np.squeeze(subpred) * y_std + y_mean, logit_link)
+    
 data.to_csv('data/lfpr_gpy_testkernels_pred.csv')
+
+with open('output/test_kernels.pkl', 'wb') as f:
+    pickle.dump(ms, f)

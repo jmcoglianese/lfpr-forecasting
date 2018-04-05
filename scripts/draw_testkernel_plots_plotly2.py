@@ -20,13 +20,13 @@ fig.append_trace(dict(type = 'surface',
                       x = data[mask_men].pivot(index = 'age', columns = 'year', values = 'age').values, 
                       y = data[mask_men].pivot(index = 'age', columns = 'year', values = 'year').values, 
                       z = data[mask_men].pivot(index = 'age', columns = 'year', values = 'lfp').values, 
-                      colorscale = 'Viridis', scene = 'scene1', showscale = True), 1, 1)
+                      colorscale = 'Viridis', scene = 'scene1', showscale = True, name = 'Actual'), 1, 1)
 
 fig.append_trace(dict(type = 'surface', 
                           x = data[mask_women].pivot(index = 'age', columns = 'year', values = 'age').values, 
                           y = data[mask_women].pivot(index = 'age', columns = 'year', values = 'year').values, 
                           z = data[mask_women].pivot(index = 'age', columns = 'year', values = 'lfp').values, 
-                          colorscale = 'Viridis', scene = 'scene2', showscale = True), 2, 1)
+                          colorscale = 'Viridis', scene = 'scene2', showscale = True, name = 'Actual'), 2, 1)
 
 if forecast_value is not 0:
     fig.append_trace(dict(type = 'surface', 
@@ -34,7 +34,7 @@ if forecast_value is not 0:
                           y = data[mask_men].pivot(index = 'age', columns = 'year', values = 'year').values, 
                           z = data[mask_men].pivot(index = 'age', columns = 'year', 
                                                    values = 'lfp_pred{}'.format(forecast_value)).values, 
-                          colorscale = 'RdBu', scene = 'scene1', showscale = True, opacity = 0.9), 1, 1)
+                          colorscale = 'RdBu', scene = 'scene1', showscale = True, opacity = 0.9, name = 'Predicted'), 1, 1)
     
 if forecast_value is not 0:
     fig.append_trace(dict(type = 'surface', 
@@ -42,7 +42,7 @@ if forecast_value is not 0:
                               y = data[mask_women].pivot(index = 'age', columns = 'year', values = 'year').values, 
                               z = data[mask_women].pivot(index = 'age', columns = 'year', 
                                                          values = 'lfp_pred{}'.format(forecast_value)).values, 
-                              colorscale = 'RdBu', scene = 'scene2', showscale = True, opacity = 0.9), 2, 1) 
+                              colorscale = 'RdBu', scene = 'scene2', showscale = True, opacity = 0.9, name = 'Predicted'), 2, 1) 
 
 fig['layout'].update(height = 1200, width = 800, 
                      autosize = False,
@@ -61,7 +61,19 @@ scene = dict(
         title = 'LFPR (p.p.)',
         range = [0, 100]
     ),
-    aspectmode = 'cube'
+    aspectmode = 'cube',
+    camera = dict(
+        center = dict(
+            x = 0.1,
+            y = -0.1,
+            z = -0.15
+        ),
+        eye = dict(
+            x = 1.6, 
+            y = 1.25, 
+            z = 0.25
+        )
+    )
 )  
     
 scene['xaxis']['range'] = [age_widget.value[0], age_widget.value[1]]
