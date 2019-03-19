@@ -4,8 +4,8 @@
 #SBATCH -n 1
 #SBATCH -N 1
 #SBATCH -p serial_requeue
-#SBATCH --mem 48000
-#SBATCH -t 0-06:00
+#SBATCH --mem 32000
+#SBATCH -t 0-12:00
 #SBATCH -o logs/python_script_%A_%a_%j_%N.out
 #SBATCH -e logs/python_script_%A_%a_%j_%N.err
 #SBATCH --mail-type=ALL
@@ -13,14 +13,14 @@
 
 cd /n/home00/jcoglianese/Dropbox/Documents/Research/LFPR/Forecasting
 
-module load gcc ImageMagick p7zip
+module load gcc p7zip
 module load python
-source activate py27
+source activate gpflow
 
 date
 res1=$(date +%s.%N)
 
-FILEPATH='scripts/test_kernels.py'
+FILEPATH='scripts/compare_gpy_gpflow.py'
 
 python -u "$FILEPATH"
 
